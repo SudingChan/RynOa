@@ -1,0 +1,6 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="rynoa">
+    <output-path>$PROJECT_DIR$/out/artifacts/rynoa</output-path>
+    <root id="archive" name="rynoa.war" />
+  </artifact>
+</component>
