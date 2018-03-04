@@ -2,6 +2,7 @@ package com.ken.rynoa.web;
 
 import com.ken.rynoa.model.RyUser;
 import com.ken.rynoa.model.RyUserExample;
+import com.ken.rynoa.model.RyUserinfo;
 import com.ken.rynoa.service.IUserService;
 import com.ken.rynoa.utils.JwtUtil;
 import com.ken.rynoa.utils.MD5Util;
@@ -146,4 +147,33 @@ public class UserController {
         }
         return oldPass;
     }*/
+
+    /**
+     * 插入用户信息
+     * @param userinfo
+     * @param request
+     * @return
+     */
+    @CrossOrigin(origins = "*")
+    @RequestMapping(value = "/userInfoAdd")
+    @ResponseBody
+    public RyUserinfo addUserInfo(RyUserinfo userinfo,HttpServletRequest request){
+        //接收前端传的值
+        String name = request.getParameter("name");
+        String sex = request.getParameter("sex");
+        String region = request.getParameter("region");
+        String department = request.getParameter("department");
+        String introduce = request.getParameter("introduce");
+        //把前端传回的值绑定到实体类上
+        userinfo.setName(name);
+        userinfo.setSex(sex);
+        userinfo.setRegion(region);
+        userinfo.setDepartment(department);
+        userinfo.setIntroduce(introduce);
+        //判断userInfo对象是否为空,为空则不执行插入语句
+        if(userinfo != null){
+            return IUserService.insert(userinfo);
+        }
+        return userinfo;
+    }
 }

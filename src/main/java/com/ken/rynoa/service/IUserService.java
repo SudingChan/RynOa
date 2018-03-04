@@ -2,6 +2,7 @@ package com.ken.rynoa.service;
 
 import com.ken.rynoa.model.RyUser;
 import com.ken.rynoa.model.RyUserExample;
+import com.ken.rynoa.model.RyUserinfo;
 
 
 /**
@@ -11,7 +12,13 @@ import com.ken.rynoa.model.RyUserExample;
  **/
 
 public interface IUserService {
-    public boolean insertSelective(RyUser ryUser);
-    public RyUser userLogin(String username,String password);
-    public int countByExample(RyUserExample userExample);
+    //用户注册接口
+    boolean insertSelective(RyUser ryUser);
+    //用户登录接口
+    RyUser userLogin(String username,String password);
+    //返回用户表记录行接口
+    int countByExample(RyUserExample userExample);
+    //插入用户信息接口
+    RyUserinfo insert(RyUserinfo ryUserinfo);
+
 }

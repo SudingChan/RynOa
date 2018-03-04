@@ -1,8 +1,10 @@
 package com.ken.rynoa.service.impl;
 
 import com.ken.rynoa.dao.RyUserDao;
+import com.ken.rynoa.dao.RyUserinfoDao;
 import com.ken.rynoa.model.RyUser;
 import com.ken.rynoa.model.RyUserExample;
+import com.ken.rynoa.model.RyUserinfo;
 import com.ken.rynoa.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,6 +19,7 @@ import org.springframework.stereotype.Service;
 public class IUserServiceImpl implements IUserService {
     @Autowired
     private RyUserDao ryUserDao;
+    private RyUserinfoDao ryUserinfoDao;
 
     /**
      * 注册方法
@@ -53,5 +56,14 @@ public class IUserServiceImpl implements IUserService {
             e.printStackTrace();
         }
         return 0;
+    }
+
+    public RyUserinfo insert(RyUserinfo ryUserinfo) {
+        try{
+            return ryUserinfoDao.insert(ryUserinfo);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return ryUserinfo;
     }
 }
