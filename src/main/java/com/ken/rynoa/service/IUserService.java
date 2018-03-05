@@ -19,6 +19,6 @@ public interface IUserService {
     //返回用户表记录行接口
     int countByExample(RyUserExample userExample);
     //插入用户信息接口
-    RyUserinfo insert(RyUserinfo ryUserinfo);
+    int insertSelective(RyUserinfo record);
 
 }
